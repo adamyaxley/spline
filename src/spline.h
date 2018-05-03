@@ -286,7 +286,7 @@ void spline::set_points(const std::vector<double>& x,
                         const std::vector<double>& y, bool cubic_spline)
 {
     assert(x.size()==y.size());
-    assert(x.size()>2);
+    assert(cubic_spline && x.size()>2 || !cubic_spline && x.size()>1);
     m_x=x;
     m_y=y;
     int   n=x.size();
